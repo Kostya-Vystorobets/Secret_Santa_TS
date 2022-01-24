@@ -1,10 +1,10 @@
-import IGift from "../layer_2/IGift";
-import IUser from "./IUser";
-import User from "./User";
+import IGiftU from "../layer_1/IGiftU.js";
+import IUser from "./IUser.js";
+import User from "./User.js";
 
 export default class SecretSanta extends User {
   private _allUsers: IUser[];
-  private _allGifts: IGift[];
+  private _allGifts: IGiftU[];
 
   public constructor(name: string, wish: string) {
     super(name, wish);
@@ -35,7 +35,7 @@ export default class SecretSanta extends User {
     });
   }
   public collectGifts(): void {
-    const collectionGift: IGift[] = [];
+    const collectionGift: IGiftU[] = [];
     this._allUsers.forEach((value) => {
       if (value.giftFriend) {
         collectionGift.push(value.giftFriend);
@@ -44,7 +44,7 @@ export default class SecretSanta extends User {
     });
     this._allGifts = collectionGift;
   }
-  public get allGifts(): IGift[] {
+  public get allGifts(): IGiftU[] {
     return this._allGifts;
   }
   public giveGiftsUsers(): void {

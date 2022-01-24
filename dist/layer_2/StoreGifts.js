@@ -23,4 +23,31 @@ export default class StoreGifs {
         }
         return gift;
     }
+    buyGiftByWishAsync(wish, callback) {
+        setTimeout(() => {
+            let error;
+            const gift = this.getGiftByName(wish);
+            if (gift) {
+                this.deleteGiftByName(wish);
+            }
+            else {
+                error = new Error('Error: Gift is absent!');
+            }
+            callback(error, gift);
+        }, 2000);
+    }
+    buyGiftByWishAsyncPromis(wish) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const gift = this.getGiftByName(wish);
+                if (gift) {
+                    this.deleteGiftByName(wish);
+                    resolve(gift);
+                }
+                else {
+                    reject(new Error('Error: Gift is absent!'));
+                }
+            }, 2000);
+        });
+    }
 }

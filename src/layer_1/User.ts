@@ -1,4 +1,5 @@
-import IGift from "../layer_2/IGift";
+import IGiftS from "../layer_2/IGiftS";
+import IGiftU from "./IGiftU";
 import IStoreGifts from "./IStoreGifts";
 import IUser from "./IUser";
 
@@ -7,9 +8,9 @@ export default class User implements IUser {
   private _happiness: number;
   private _name: string;
   private _wish: string;
-  private _gift: IGift | null;
+  private _gift: IGiftU | null;
   private _wishFriend: string | null;
-  private _giftFriend: IGift | null;
+  private _giftFriend: IGiftU | null;
   private _storeGifts: IStoreGifts | null;
 
   public constructor(name: string, wish: string) {
@@ -27,10 +28,10 @@ export default class User implements IUser {
   public get wish(): string {
     return this._wish;
   }
-  public get gift(): IGift | null {
+  public get gift(): IGiftU | null {
     return this._gift;
   }
-  public set gift(gift: IGift | null) {
+  public set gift(gift: IGiftU | null) {
     this._gift = gift;
   }
   public unpackGift(): void {
@@ -45,12 +46,12 @@ export default class User implements IUser {
   public set wishFriend(wishFriend) {
     this._wishFriend = wishFriend;
   }
-  public get giftFriend(): IGift | null {
+  public get giftFriend(): IGiftU | null {
     return this._giftFriend;
   }
   public buyGiftFriend(): void {
     if (this._storeGifts && this._wishFriend) {
-      this._giftFriend = this._storeGifts.buyGiftByWish(this._wishFriend);
+      this._giftFriend = <IGiftU>this._storeGifts.buyGiftByWish(this._wishFriend);
       if (this._giftFriend) {
         this._giftFriend.packGift();
       }

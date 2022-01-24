@@ -1,6 +1,7 @@
-import IGift from "../layer_2/IGift";
+import IGiftU from "../layer_1/IGiftU";
+import IGiftS from "../layer_2/IGiftS";
 
-export default class Gift implements IGift {
+export default class Gift implements IGiftU, IGiftS {
   private _name: string;
   private _pack: boolean;
 
