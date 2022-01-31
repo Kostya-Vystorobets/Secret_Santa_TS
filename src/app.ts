@@ -63,27 +63,27 @@ ss.giveOutWishUsers();
 // console.log(ss);
 
 // Async
-sg.buyGiftByWishAsync('гирлянда', (error, gift) => {
-    if (error) {
-        console.log(error);
-    } else {
-        console.log(gift);
-    }
-    sg.buyGiftByWishAsync('тарелка', (error, gift) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log(gift);
-        }
-        sg.buyGiftByWishAsync('тарелка', (error, gift) => {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log(gift);
-            }
-        });
-    });
-});
+// sg.buyGiftByWishAsync('гирлянда', (error, gift) => {
+//     if (error) {
+//         console.log(error);
+//     } else {
+//         console.log(gift);
+//     }
+//     sg.buyGiftByWishAsync('тарелка', (error, gift) => {
+//         if (error) {
+//             console.log(error);
+//         } else {
+//             console.log(gift);
+//         }
+//         sg.buyGiftByWishAsync('тарелка', (error, gift) => {
+//             if (error) {
+//                 console.log(error);
+//             } else {
+//                 console.log(gift);
+//             }
+//         });
+//     });
+// });
 
 
 // Async Promise
@@ -100,21 +100,21 @@ sg.buyGiftByWishAsync('гирлянда', (error, gift) => {
 //     .catch((error) => console.log(error));
 
 
-// // Async Function
-// async function buyGiftByWishAsyncF(): Promise<void> {
-//     try {
-//         const gift1: IGiftS = await sg.buyGiftByWishAsyncPromis('робот');
-//         console.log(gift1);
-//         const gift2: IGiftS = await sg.buyGiftByWishAsyncPromis('тарелка');
-//         console.log(gift2);
-//         const gift3: IGiftS = await sg.buyGiftByWishAsyncPromis('тарелка');
-//         console.log(gift3);
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+// Async Function
+async function buyGiftByWishAsyncF(): Promise<void> {
+    try {
+        const gift1: IGiftS = await sg.buyGiftByWishAsyncPromis('робот');
+        console.log(gift1);
+        const gift2: IGiftS = await sg.buyGiftByWishAsyncPromis('тарелка');
+        console.log(gift2);
+        const gift3: IGiftS = await sg.buyGiftByWishAsyncPromis('тарелка');
+        console.log(gift3);
+    } catch (error) {
+        console.log(error);
+    }
+}
 
-// buyGiftByWishAsyncF();
+buyGiftByWishAsyncF();
 
 
 
